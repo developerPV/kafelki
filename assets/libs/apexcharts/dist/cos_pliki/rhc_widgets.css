@@ -1,0 +1,9 @@
+@import url("css/common.css");
+@import url("css/rhc_accordion_widget.css");
+@import url("css/up7.css");
+@import url("css/up8.css");
+
+/* pending remove, move to rhc_accordion_widget.css*/
+.rhc-hide-ical .rhc-icon-ical {
+	display:none;
+}

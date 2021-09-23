@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="robots" content="noindex"><meta name="google-signin-client_id" content="781343305456-l94ndv0svflqub9h5c358kf60879f988.apps.googleusercontent.com"><script type="text/javascript">       
+            var layout = '0';
+
+            var volume = 'normal';
+            var sound = 'entry';
+            var soundMessage = 'jar';
+
+            var receivedByConsultant = false;
+            var clockTicking = false;
+            var seconds = 0;
+            var clockStop = false;
+            var myTimer = false;
+
+            var isNowOnline = true;
+            var firstAlwaysLoad = true;
+            var firstFirst = true;
+            var conversationOngoing = false;
+            var firstMessage = true;
+            var forceOffline = false;
+            var facebookAppId = "776483145791422";
+            var seenLang = "Przeczytano";
+
+            var removeDataConfirm = "Czy na pewno chcesz usunąć wszystkie swoje dane osobowe przechowywane w naszym serwisie?";
+            var removeDataDone    = "Wszystkie Twoje dane osobowe zostały usunięte.";
+            var maxFiles          = "Można dodać maksymalnie 5 plików";
+            var maxSize           = "Maksymalny rozmiar pliku: 5Mb";
+            
+                        
+            var chat_client_cookie = "e01b2adce31eff55eaf6bed64be3cc7b";
+            
+            var chat_consultant_conversation_id = "chat_consultant_conversation_id";
+            var chatId = "0f0068f3aee6acae99b51c877b52ad3c8ebaae98";
+            var consultantName = "Ryszard Stasiak";
+            var clientName = "ja";
+            var alert_consultant_busy = "Obecnie wszyscy konsultanci są zajęci.";
+            var base_url = "https://www.czater.pl/";
+            var static_url = "https://www.czater.pl/static/801/";
+            var clientStaticUrl = "https://www.czater.pl/static/1631800856/"
+
+            var langLineSave  = "Zapisz";
+            var langLineClose = "Zamknij";
+            var surveyThanks;
+            var chatSectionButton = "1";
+            var idSectionDefault = false;
+
+            var referrer = "";
+            var ratingUp = (window.location.href.indexOf('marking=1') >= 0);
+            var rate_conv = "Ocena rozmowy";
+            var isMarkingOn = false;
+            
+            var colors = {
+                primaryColor: '#4484ce',
+                secondaryColor: '#8fb5e2',
+                buttonColor: '#d9d9d9',
+
+                textColor: 'white',
+                textButtonColor: 'black'
+            }
+            
+            var referer = "";
+            
+            var connecting = "Trwa łączenie...";
+            var noInternet = "utracono połącznie z serwerem";
+            var momentAgo = "przed chwilą";
+            var selectMark = "Prosimy wybrać ocenę lub klinąć Anuluj";
+            var messageMinimum1 = "To pole musi mieć minimum";
+            var messageMinimum2 = "znaków";
+            var requiredField = "To pole jest wymagane";
+            var requiredEmail = "Niepoprawny email";
+            var digits = "Proszę o podanie samych cyfr.";
+            var someConsFree    = "Za chwilę rozmowa zostanie odebrana";
+            var allConsOccupied = "Wszyscy konsultanci są zajęci. Prosimy poczekać.";
+            var endConv         = "Rozmowa zakończona";
+
+            var shownClientData = false;
+            var flagURL = static_url + "assets/css/flags.min.css";
+
+            var messagesPrev = null;
+            var messagesCurrent = [];
+            var clientData = {"status":"online","lang_name":"Imi\u0119 i nazwisko","lang_email":"E-mail","lang_phone":"Telefon","lang_skype":"Skype","lang_custom":"login w serwisie ...","lang_gather_data":"","countryCodes":{"DZ":{"code":"213","name":"Algeria"},"AD":{"code":"376","name":"Andorra"},"AO":{"code":"244","name":"Angola"},"AI":{"code":"1264","name":"Anguilla"},"AG":{"code":"1268","name":"Antigua &amp; Barbuda"},"AR":{"code":"54","name":"Argentina"},"AM":{"code":"374","name":"Armenia"},"AW":{"code":"297","name":"Aruba"},"AU":{"code":"61","name":"Australia"},"AT":{"code":"43","name":"Austria"},"AZ":{"code":"994","name":"Azerbaijan"},"BS":{"code":"1242","name":"Bahamas"},"BH":{"code":"973","name":"Bahrain"},"BD":{"code":"880","name":"Bangladesh"},"BB":{"code":"1246","name":"Barbados"},"BY":{"code":"375","name":"Belarus"},"BE":{"code":"32","name":"Belgium"},"BZ":{"code":"501","name":"Belize"},"BJ":{"code":"229","name":"Benin"},"BM":{"code":"1441","name":"Bermuda"},"BT":{"code":"975","name":"Bhutan"},"BO":{"code":"591","name":"Bolivia"},"BA":{"code":"387","name":"Bosnia Herzegovina"},"BW":{"code":"267","name":"Botswana"},"BR":{"code":"55","name":"Brazil"},"BN":{"code":"673","name":"Brunei"},"BG":{"code":"359","name":"Bulgaria"},"BF":{"code":"226","name":"Burkina Faso"},"BI":{"code":"257","name":"Burundi"},"KH":{"code":"855","name":"Cambodia"},"CM":{"code":"237","name":"Cameroon"},"CA":{"code":"1","name":"Canada"},"CV":{"code":"238","name":"Cape Verde Islands"},"KY":{"code":"1345","name":"Cayman Islands"},"CF":{"code":"236","name":"Central African Republic"},"CL":{"code":"56","name":"Chile"},"CN":{"code":"86","name":"China"},"CO":{"code":"57","name":"Colombia"},"KM":{"code":"269","name":"Comoros"},"CG":{"code":"242","name":"Congo"},"CK":{"code":"682","name":"Cook Islands"},"CR":{"code":"506","name":"Costa Rica"},"HR":{"code":"385","name":"Croatia"},"CU":{"code":"53","name":"Cuba"},"CY":{"code":"357","name":"Cyprus South"},"CZ":{"code":"420","name":"Czech Republic"},"DK":{"code":"45","name":"Denmark"},"DJ":{"code":"253","name":"Djibouti"},"DM":{"code":"1809","name":"Dominica"},"DO":{"code":"1809","name":"Dominican Republic"},"EC":{"code":"593","name":"Ecuador"},"EG":{"code":"20","name":"Egypt"},"SV":{"code":"503","name":"El Salvador"},"GQ":{"code":"240","name":"Equatorial Guinea"},"ER":{"code":"291","name":"Eritrea"},"EE":{"code":"372","name":"Estonia"},"ET":{"code":"251","name":"Ethiopia"},"FK":{"code":"500","name":"Falkland Islands"},"FO":{"code":"298","name":"Faroe Islands"},"FJ":{"code":"679","name":"Fiji"},"FI":{"code":"358","name":"Finland"},"FR":{"code":"33","name":"France"},"GF":{"code":"594","name":"French Guiana"},"PF":{"code":"689","name":"French Polynesia"},"GA":{"code":"241","name":"Gabon"},"GM":{"code":"220","name":"Gambia"},"GE":{"code":"7880","name":"Georgia"},"DE":{"code":"49","name":"Germany"},"GH":{"code":"233","name":"Ghana"},"GI":{"code":"350","name":"Gibraltar"},"GR":{"code":"30","name":"Greece"},"GL":{"code":"299","name":"Greenland"},"GD":{"code":"1473","name":"Grenada"},"GP":{"code":"590","name":"Guadeloupe"},"GU":{"code":"671","name":"Guam"},"GT":{"code":"502","name":"Guatemala"},"GN":{"code":"224","name":"Guinea"},"GW":{"code":"245","name":"Guinea - Bissau"},"GY":{"code":"592","name":"Guyana"},"HT":{"code":"509","name":"Haiti"},"HN":{"code":"504","name":"Honduras"},"HK":{"code":"852","name":"Hong Kong"},"HU":{"code":"36","name":"Hungary"},"IS":{"code":"354","name":"Iceland"},"IN":{"code":"91","name":"India"},"ID":{"code":"62","name":"Indonesia"},"IR":{"code":"98","name":"Iran"},"IQ":{"code":"964","name":"Iraq"},"IE":{"code":"353","name":"Ireland"},"IL":{"code":"972","name":"Israel"},"IT":{"code":"39","name":"Italy"},"JM":{"code":"1876","name":"Jamaica"},"JP":{"code":"81","name":"Japan"},"JO":{"code":"962","name":"Jordan"},"KZ":{"code":"7","name":"Kazakhstan"},"KE":{"code":"254","name":"Kenya"},"KI":{"code":"686","name":"Kiribati"},"KP":{"code":"850","name":"Korea North"},"KR":{"code":"82","name":"Korea South"},"KW":{"code":"965","name":"Kuwait"},"KG":{"code":"996","name":"Kyrgyzstan"},"LA":{"code":"856","name":"Laos"},"LV":{"code":"371","name":"Latvia"},"LB":{"code":"961","name":"Lebanon"},"LS":{"code":"266","name":"Lesotho"},"LR":{"code":"231","name":"Liberia"},"LY":{"code":"218","name":"Libya"},"LI":{"code":"417","name":"Liechtenstein"},"LT":{"code":"370","name":"Lithuania"},"LU":{"code":"352","name":"Luxembourg"},"MO":{"code":"853","name":"Macao"},"MK":{"code":"389","name":"Macedonia"},"MG":{"code":"261","name":"Madagascar"},"MW":{"code":"265","name":"Malawi"},"MY":{"code":"60","name":"Malaysia"},"MV":{"code":"960","name":"Maldives"},"ML":{"code":"223","name":"Mali"},"MT":{"code":"356","name":"Malta"},"MH":{"code":"692","name":"Marshall Islands"},"MQ":{"code":"596","name":"Martinique"},"MR":{"code":"222","name":"Mauritania"},"YT":{"code":"269","name":"Mayotte"},"MX":{"code":"52","name":"Mexico"},"FM":{"code":"691","name":"Micronesia"},"MD":{"code":"373","name":"Moldova"},"MC":{"code":"377","name":"Monaco"},"MN":{"code":"95","name":"Myanmar"},"MS":{"code":"1664","name":"Montserrat"},"MA":{"code":"212","name":"Morocco"},"MZ":{"code":"258","name":"Mozambique"},"NA":{"code":"264","name":"Namibia"},"NR":{"code":"674","name":"Nauru"},"NP":{"code":"670","name":"Northern Marianas"},"NL":{"code":"31","name":"Netherlands"},"NC":{"code":"687","name":"New Caledonia"},"NZ":{"code":"64","name":"New Zealand"},"NI":{"code":"505","name":"Nicaragua"},"NE":{"code":"227","name":"Niger"},"NG":{"code":"234","name":"Nigeria"},"NU":{"code":"683","name":"Niue"},"NF":{"code":"672","name":"Norfolk Islands"},"NO":{"code":"47","name":"Norway"},"OM":{"code":"968","name":"Oman"},"PK":{"code":"92","name":"Pakistan"},"PW":{"code":"680","name":"Palau"},"PA":{"code":"507","name":"Panama"},"PG":{"code":"675","name":"Papua New Guinea"},"PY":{"code":"595","name":"Paraguay"},"PE":{"code":"51","name":"Peru"},"PH":{"code":"63","name":"Philippines"},"PL":{"code":"48","name":"Poland"},"PT":{"code":"351","name":"Portugal"},"PR":{"code":"1787","name":"Puerto Rico"},"QA":{"code":"974","name":"Qatar"},"RE":{"code":"262","name":"Reunion"},"RO":{"code":"40","name":"Romania"},"RU":{"code":"7","name":"Russia"},"RW":{"code":"250","name":"Rwanda"},"SM":{"code":"378","name":"San Marino"},"ST":{"code":"239","name":"Sao Tome &amp; Principe"},"SA":{"code":"966","name":"Saudi Arabia"},"SN":{"code":"221","name":"Senegal"},"CS":{"code":"381","name":"Serbia"},"SC":{"code":"1758","name":"St. Lucia"},"SL":{"code":"232","name":"Sierra Leone"},"SG":{"code":"65","name":"Singapore"},"SK":{"code":"421","name":"Slovak Republic"},"SI":{"code":"963","name":"Syria"},"SB":{"code":"677","name":"Solomon Islands"},"SO":{"code":"252","name":"Somalia"},"ZA":{"code":"27","name":"South Africa"},"ES":{"code":"34","name":"Spain"},"LK":{"code":"94","name":"Sri Lanka"},"SH":{"code":"290","name":"St. Helena"},"KN":{"code":"1869","name":"St. Kitts"},"SD":{"code":"249","name":"Sudan"},"SR":{"code":"597","name":"Suriname"},"SZ":{"code":"268","name":"Swaziland"},"SE":{"code":"46","name":"Sweden"},"CH":{"code":"41","name":"Switzerland"},"TW":{"code":"886","name":"Taiwan"},"TJ":{"code":"992","name":"Tajikistan"},"TH":{"code":"66","name":"Thailand"},"TG":{"code":"228","name":"Togo"},"TO":{"code":"676","name":"Tonga"},"TT":{"code":"1868","name":"Trinidad &amp; Tobago"},"TN":{"code":"216","name":"Tunisia"},"TR":{"code":"90","name":"Turkey"},"TM":{"code":"993","name":"Turkmenistan"},"TC":{"code":"1649","name":"Turks &amp; Caicos Islands"},"TV":{"code":"688","name":"Tuvalu"},"UG":{"code":"256","name":"Uganda"},"GB":{"code":"44","name":"UK"},"UA":{"code":"380","name":"Ukraine"},"AE":{"code":"971","name":"United Arab Emirates"},"UY":{"code":"598","name":"Uruguay"},"US":{"code":"1","name":"USA"},"UZ":{"code":"998","name":"Uzbekistan"},"VU":{"code":"678","name":"Vanuatu"},"VA":{"code":"379","name":"Vatican City"},"VE":{"code":"58","name":"Venezuela"},"VN":{"code":"84","name":"Vietnam"},"VG":{"code":"1","name":"Virgin Islands - British"},"VI":{"code":"1","name":"Virgin Islands - US"},"WF":{"code":"681","name":"Wallis &amp; Futuna"},"YE":{"code":"967","name":"Yemen (South)"},"ZM":{"code":"260","name":"Zambia"},"ZW":{"code":"263","name":"Zimbabwe"}},"fields":{"name":{"status":"1","obligatory":"1","text":"Imi\u0119 i nazwisko","value":""},"email":{"status":"1","obligatory":"1","text":"E-mail","value":""},"phone":{"status":"0","obligatory":"1","text":"Telefon","value":"","directional":""},"skype":{"status":"0","obligatory":"1","text":"Skype","value":""},"custom":{"status":"0","obligatory":"1","text":"login w serwisie ...","value":""}}};
+
+            var language = window.navigator.userLanguage || window.navigator.language;
+            
+            var domainLanguage = "polish";
+
+            var ChatVisible = 0;
+            var frameHeight = 35;
+            var isActiveConversation = false;
+            var isAlertConsultantBusySend = false;
+            var interval = 3000;
+            var isWritting = 0;
+
+            var isSections = "1";
+            var my_data_header = "Przepraszamy, ale w tej chwili nie możemy odebrać rozmowy. Prosimy o zostawienie danych, a skontaktujemy się najszybciej jak to możliwe";
+            var alwaysOnline = 0;
+            var chosenSection = 0;
+            var sectionsOnline = 0;
+
+            var chat_client_cookie = "e01b2adce31eff55eaf6bed64be3cc7b";
+            var chatId = "0f0068f3aee6acae99b51c877b52ad3c8ebaae98";
+            var clientID = "e01b2ad";
+            var allConsOccupiedCheck = false;
+            var code = "0";
+            var layout = "0";
+            var smartScreen = "0";
+            var sent_succesfully = "Twoja wiadomość została wysłana poprawnie";
+
+            var clickedDataByGoogle = false;
+            var timestamp = 1631800856;
+
+            var askForLivePreview = 0;
+        </script> <script src="20496_data/build.js"></script> <link rel="stylesheet" href="20496_data/chat0.css"><link rel="stylesheet" href="icons.css" type="text/css"><link rel="stylesheet" href="20496_data/survey.css" type="text/css"><style></style><link rel="stylesheet" type="text/css" href="0f0068f3aee6acae99b51c877b52ad3c8ebaae98.css" as="style"><link href="20496_data/flags.css" rel="stylesheet"></head><body id="chatInsideBody" class=" "><div id="mocha"></div><div id="fb-root"></div><span id="noInternet" class="glyphicon glyphicon-transfer" style="display: none;"></span> <div class="loading" style="display: none;"> <img src="data:image/svg+xml,%3C%3Fxml version='1.0' %3F%3E%3Csvg height='32' id='loading' viewBox='0 0 32 32' width='32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%280 16 16%29'%3E%3Canimate attributeName='opacity' begin='0' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%2845 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.125s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%2890 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.25s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28135 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.375s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28180 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.5s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28225 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.675s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28270 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.75s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28315 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.875s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3C/g%3E%3C/svg%3E"></div><div id="marking" style="display: none;"><form method="post" action="https://www.czater.pl/chat/getClientChat/e01b2adce31eff55eaf6bed64be3cc7b/0f0068f3aee6acae99b51c877b52ad3c8ebaae98/pl/20496?" id="markForm"><div> Ocena rozmowy <input type="radio" name="markValue" value="0" id="markValueUp"><label class="mark" for="markValueUp"><div id="markUp" class="e3D18r-icon-bundle e3D18r-icon-up"></div></label> <input type="radio" name="markValue" value="1" id="markValueDown"><label class="mark" for="markValueDown"><div id="markDown" class="e3D18r-icon-bundle e3D18r-icon-down"></div></label></div><div> <input type="text" name="markComment" id="markComment" class="form-control" placeholder="Komentarz (opcjonalnie)"></div><div> <input type="hidden" id="markValue" name="markValue" value=""> <input type="button" id="markSend" class="czater-button" value="Wyślij"> <input type="button" id="markCancel" class="czater-button" value="Anuluj"></div></form></div><div id="czater-mainContener" style="display: none;" is-bot="false"><div class="czater-window" firstmessage="1"><div style="pointer-events: none; position: absolute; font-size: 20px; display:none; z-index:99999999999; padding: 10px; background: white; opacity: 0.6; line-height: 100%; width: 100%; height:100%" id="czater-drop-info"><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Upuść zdjęcie tutaj</div></div><div class="czater-content"><div class="czaterTopButtons"> <div id="welcomeMessage" class="czater-leftMessage clearfix" style="visibility: visible; display: block;">W czym możemy pomóc?</div></div><div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><div class="czater-messages" data-conversationclosed="0" style="overflow: hidden; width: auto; height: 100%;"> <span class="hidden czater-incomingMessage clearfix isWritting"><div class="chat-body clearfix" style="position:relative; "><div class="header"></div>Konsultant pisze...</div></span></div><div class="slimScrollBar" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div></div></div></div><div id="czater-photos"></div><div id="czater-input-area" style="position:relative;"> <textarea type="text" name="message" id="inputMessage" rows="1" placeholder="Napisz wiadomość i naciśnij Enter" class="inputView pastable"></textarea> <div class="czater-submit hidden"> <img id="allSettings" src="20496_data/lnr-cog.svg"><div id="settings"> <div class="czater-settings-button">OPCJE</div> <div class="czater-preview-button">UDOSTĘPNIJ EKRAN</div> <div class="czater-myData-button">MOJE DANE</div> </div>  <a target="_blank" class="logo" title="Czater" href="https://www.czater.pl/strona/live-chat?partner=https%3A%2F%2Fuksw.trilion.ovh%2F" tabindex="999"><div class="e3D18r-icon-bundle e3D18r-icon-promo"></div></a> </div>  <span id="paymentChatOff">Czat jest dostępny po opłaceniu dostępu</span> <div id="addImageToConversation"><form id="addImage" action="https://www.czater.pl/chat/addImageToConversation" method="post"> <input type="file" name="file" id="imageToConversation" class="addIcon"> <input type="hidden" id="addImageClientHash" value="e01b2adce31eff55eaf6bed64be3cc7b"><div class="addImageIcon addIcon e3D18r-icon-spinacz e3D18r-icon-bundle"></div> <img class="addImageLoader" src="data:image/svg+xml,%3C%3Fxml version='1.0' %3F%3E%3Csvg height='32' id='loading' viewBox='0 0 32 32' width='32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%280 16 16%29'%3E%3Canimate attributeName='opacity' begin='0' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%2845 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.125s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%2890 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.25s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28135 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.375s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28180 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.5s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28225 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.675s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28270 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.75s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3Cpath d='M14 0 H18 V8 H14 z' opacity='.1' transform='rotate%28315 16 16%29'%3E%3Canimate attributeName='opacity' begin='0.875s' dur='1s' from='1' repeatCount='indefinite' to='.1'/%3E%3C/path%3E%3C/g%3E%3C/svg%3E" alt="Loading..."></form></div> <div id="pressSend" class="e3D18r-icon-send e3D18r-icon-bundle" style="display: none;"></div></div></div><div id="message-offline-send" style="display: none;"></div><div id="survey" class="survey" style="display: none;"></div><div id="loading-offline-send" class="loading-icon"><svg width="100px" height="100px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke-dasharray="163.36281798666926 87.9645943005142" stroke="#570054" fill="none" stroke-width="20"><animateTransform attributeName="transform" type="rotate" values="0 50 50;180 50 50;360 50 50;" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite" begin="0s"></animateTransform></circle></svg></div><div class="czater-form-offline" style="display: block;"><div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><form id="sendEmail" class="form form-data" enctype="multipart/form-data" novalidate="novalidate" style="overflow: hidden; width: auto; height: 100%;"><div class="small"> <span cz-v-3-border-color-after="primary-color">Nasi konsultanci są w tej chwili niedostępni. Proszę zostawić wiadomość.</span><br></div> <input type="text" name="spectre" placeholder="Spectre" class="form-control" style="position: absolute; right: 10000px;"><div class="client-data-all-fields"><div class="client-data-input-field client-data-id-name"><input id="client-data-name" type="text" name="name" class="client-data-input form-control" required="true" data-input-value=""><label class="client-data-placeholder" for="client-data-name">Imię i nazwisko</label></div><div class="client-data-input-field client-data-id-email"><input id="client-data-email" type="text" name="email" class="client-data-input form-control" required="true" data-input-value=""><label class="client-data-placeholder" for="client-data-email">E-mail</label></div><div class="client-data-input-field"><textarea id="offline-message-textarea" name="message" class="client-data-input form-control form-message" data-input-value=""></textarea> <label class="client-data-placeholder" for="offline-message-textarea">Treść wiadomości</label> </div></div>  <button class="send-control czater-button" type="submit">Wyślij</button> <a target="_blank" class="logo" title="Livechat" href="https://www.czater.pl/strona/live-chat?partner=https%3A%2F%2Fuksw.trilion.ovh%2F" tabindex="999"><div class="e3D18r-icon-bundle e3D18r-icon-promo"></div></a> </form><div class="slimScrollBar" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 30px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div></div></div><div class="czater-myData" style="display: none;"><div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><form class="formClientData form form-data" novalidate="novalidate" style="overflow: hidden; width: auto; height: 100%;"><h3 id="myData" cz-v-3-color="text-color">Prosimy o wpisanie danych:</h3><div class="client-data-all-fields"></div> <input type="submit" name="save" class="czater-clientdata czater-button" value="Zapisz"> <input type="button" name="close" class="czater-myData-button-close czater-button" value="Zamknij"><div id="getData"><span id="dataByFacebook"><div class="e3D18r-icon-bundle e3D18r-icon-facebook_login"></div> </span><div id="dataByGoogle" class="g-signin2" data-onsuccess="onSignIn"></div></div>  </form><div class="slimScrollBar" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div></div></div><div class="czater-sections form" style="display: none;"><div><div class="czater-layout-section-header">Wybierz dział, z którym chcesz się połączyć</div><div>  <ul class="sections-online"></ul> <ul class="sections-offline"><li data-id="4210" data-hash="c0d2d0bf4576a29bfa929c0bba15f7ac4f0e1d8a"><a data-status="offline" data-id="4210" class="czater-section-link" href="#"><div class="czater-layout-avatar"><img src="20496_data/small_2adad3afa49fd53c66e2812e893d00c3.png" alt=""></div><div class="czater-layout-section"><div class="czater-layout-name">Biuro Komunikacji i Promocji</div><div class="czater-layout-status">offline</div></div></a></li><li data-id="4296" data-hash="d7bf28b4d5da051bd62f3ac4c7275dca0ac2ad85"><a data-status="offline" data-id="4296" class="czater-section-link" href="#"><div class="czater-layout-avatar"><img src="20496_data/small_64184591dc3f9687f814b6aa882a79b4.png" alt=""></div><div class="czater-layout-section"><div class="czater-layout-name">Centrum Systemów Informatycznych</div><div class="czater-layout-status">offline</div></div></a></li><li data-id="4468" data-hash="a8151b61aa876a5bd668ca6f7283c847bc6d7f61"><a data-status="offline" data-id="4468" class="czater-section-link" href="#"><div class="czater-layout-avatar"><img src="20496_data/small_907b176de61800edc376a28b7aeda7db.png" alt=""></div><div class="czater-layout-section"><div class="czater-layout-name">Doradctwo psychologiczne</div><div class="czater-layout-status">offline</div></div></a></li></ul> </div></div></div> <div class="czater-settings form" style="display: none;"><div class="form-data"> <form method="post" action="" class="form-czater-download"> <input type="hidden" name="input-czater-download"></form><h3 cz-v-3-color="text-color">Wyślij rozmowę na e-mail:</h3><form method="post" action="" class="row form-czater-send"><div class="client-data-input-field"> <input id="conv-to-email" type="email" name="sendEmail" class="client-data-input form-control" data-input-value=""> <label class="client-data-placeholder" for="conv-to-email">E-mail</label></div> <input type="submit" class="czater-send-czat czater-button" value="Wyślij"></form><div style="clear: both"></div> <div class="row"> <h3 cz-v-3-color="text-color">Zapisz rozmowę w pliku</h3> <span class="czater-settings-button-close czater-button">Zamknij</span> <span class="czater-download-czat czater-button">Zapisz</span>  </div></div></div>  <script type="text/javascript">
+            
+            $(document).ready(function() {
+                
+                                    
+                    $('#inputMessage').on('pasteImage', function (ev, data) {
+                        var photo = data['blob'];
+                        photo = new File([photo], "name.png");
+                        if(photo != undefined) {
+                            photo['id'] = idPhoto;
+                            photosToSend.push(photo);
+                            var reader = new FileReader();
+                            reader.readAsDataURL(photo);
+                            reader.onloadend = function() {
+                                var photoContainer = document.createElement('div');
+                                photoContainer.classList.add("photoContainer");
+                                var img = document.createElement('img');
+                                var deleteButton = document.createElement('div');
+                                deleteButton.classList.add("deleteButton");
+                                deleteButton.classList.add("e3D18r-icon-bundle");
+                                deleteButton.classList.add("e3D18r-icon-zamknij_black");
+                                deleteButton.setAttribute('data-id', idPhoto);
+                                idPhoto++;
+                                img.style.height = "40px";
+                                img.style.width = "40px";
+                                var container = document.getElementById("czater-photos");
+                                img.src = reader.result;
+                                photoContainer.appendChild(img);
+                                photoContainer.appendChild(deleteButton);
+                                container.appendChild(photoContainer);
+                                container.style.display = "block";
+                                document.getElementById("inputMessage").style.maxHeight = "90px";      
+                                if(layout == 1 || layout == 2) {
+                                    document.getElementById("inputMessage").style.maxHeight = "80px";
+                                    document.getElementById("inputMessage").style.height = "80px";
+                                }
+                                if(layout == 3) {
+                                    document.getElementById("inputMessage").style.maxHeight = "100px";
+                                    document.getElementById("inputMessage").style.height = "100px";
+                                }   
+                            }
+                        }
+                    });
+                                
+                window.parent.postMessage(JSON.stringify(
+                    {
+                        "type": "frameLoaded", 
+                        "messages": 0, 
+                        "isSections": "1"
+                    }
+                ), "*");
+                
+                                
+                $(".loading").hide();
+
+                var language = window.navigator.userLanguage || window.navigator.language;
+                
+                                    firstMessage = true;
+                            });
+            
+                        
+            
+            
+            function countTime() {
+                var s = "";
+                var a = parseInt(seconds);
+
+                if (typeof(myTimer) !=='undefined' && (seconds <= 0)){
+                        clearInterval(myTimer);
+                }; 
+
+                if (a > 0) {
+                    clockTicking = true;
+
+                    // a += 59;
+                    var hours = parseInt(a / 3600);
+
+                    a = a % 3600;
+                    var minutes = parseInt(a / 60);
+
+                    a = a % 60;
+
+                    if (hours > 0) {
+                        s += hours + " " + conjugation("godzin", hours, "a", "y", "") + " ";
+                    }
+                    if (minutes > 0) {
+                        s += minutes + " " + conjugation("minut", minutes, "a", "y", "") + " ";
+                    }
+                    if (a > 0) {
+                        s += a + " " + conjugation("sekund", a, "a", "y", "") + " ";
+                    }                  
+
+                    $("#payment-time").removeClass("red");
+                    
+                    $("#inputMessage").show();
+                    $("#pressSend").hide();
+                    $("#addImageToConversation").show();
+                    $("#paymentChatOff").hide();
+                    
+                                    }
+                else {
+                    if (clockTicking){
+                        clockTicking = false;
+                    };
+
+                    s = "Czas upłynął";
+                    $("#payment-time").addClass("red");
+                    
+                                        
+                    clockStop = setTimeout(function() {
+                        $("#payment-form").slideDown();
+                        $("#payment-time").slideUp();
+                    }, 3000);
+                }
+
+                $("#payment-time").html(s);
+                if (receivedByConsultant ) seconds -= 1;
+            }
+            
+                        
+            $(".payment-code-button").click(function () {
+                $(".payment-teaser").slideToggle();
+                $(".payment-code").slideToggle();
+            });
+            
+            $(".payment-enter-button").click(function () {
+                code =  $("#code").val(); 
+                enterCode(code,'0f0068f3aee6acae99b51c877b52ad3c8ebaae98',chat_client_cookie,'chat');
+            });
+
+            
+            function enterCode(local_code,idUser,clientHash,type){
+
+                code = local_code;
+
+                $.ajax({
+                    type: "POST",
+                    url: "/chat/enterPaymentCode/" + code + "/" + idUser + "/"  + clientHash + "/"  + type,
+                    dataType: "json"
+                }).done(function (response) {
+                    var department = {id: 0, hash: 0};
+                    window.parent.postMessage(JSON.stringify({
+                        type: "ClientSendMessage",
+                        value: {
+                            adminHash: chatId,
+                            allegroReferer: "",
+                            code: code,
+                            whoSend: "client",
+                            firstMessage: false,
+                            resetConsultantClock: true,
+                            chatHash: clientHash,
+                            consultantID: chatId,
+                            clientID: clientID,
+                            message: "",
+                            department: department,
+                            clientSystemInfo: 1,
+                            isCodeValid: !response.wrongCode
+                        }
+                    }), "*");
+
+                    window.parent.postMessage(JSON.stringify({
+                        type: "newGetStatus"
+                    }), "*");
+
+                    seconds = response.seconds;                    
+
+                    $(".payment-teaser").slideDown();
+                    $(".payment-code").slideUp();
+
+                    if (response.wrongCode) {
+                        $(".wrong-code").slideDown();
+                    }
+                    else {
+                        $(".wrong-code").slideUp();
+                    }
+
+                    if (seconds > 0) {
+                        $("#inputMessage").show();
+                        $("#pressSend").hide();
+                        $("#addImageToConversation").show();
+                        $("#paymentChatOff").hide();
+                        
+                        $("#payment-time").html("");
+                        countTime();
+                        myTimer = setInterval(function(){
+                            countTime();
+                        }, 1000);
+
+                        $("#payment-form").slideUp();
+                        $("#payment-time").slideDown();
+                    }
+                    else {
+                        $("#payment-form").slideDown();
+                        $("#payment-time").slideUp();
+                    }
+                });    
+            }
+
+            function updateTimeLeft(newTimeLeft) {
+                seconds = newTimeLeft;
+
+                if (seconds > 0) {
+                    $("#inputMessage").show();
+                    $("#pressSend").hide();
+                    $("#addImageToConversation").show();
+                    $("#paymentChatOff").hide();
+                    
+                    $("#payment-time").html("");
+                    
+                    $("#payment-form").slideUp();
+                    $("#payment-time").slideDown();
+                    if (!clockTicking) {
+                        countTime();
+                        myTimer = setInterval(function(){
+                            countTime();
+                        }, 1000);
+                    }
+                }
+            }
+
+            $('.chat-section-select').hide();
+
+            $('.chat-section-choose-button').on("click", function(){
+                if($('.chat-section-select').is(":visible")){
+                    selectSlideUp();
+                }
+                else{
+                    selectSlideDown();     
+                } 
+
+            });
+
+            $('.czater-sections').click(function(event) { 
+                var target = $(event.target);
+                if(!target.closest('.chat-section-choose-button').length && 
+                $('.chat-section-select').is(":visible")) {
+                    selectSlideUp();
+                }        
+            });
+
+            window.parent.postMessage(JSON.stringify({
+                type: "newGetStatus"
+            }), "*");
+
+        </script> </body></html>

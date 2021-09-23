@@ -1,0 +1,49 @@
+.my-app {
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: rgb(151, 151, 151);
+}
+
+#main-container {
+    height:inherit;
+    display: grid;
+    grid-template-columns: 310px auto 250px ;
+    grid-template-rows: 100px auto 30%;
+    grid-template-areas: "header header header" "l-side content r-side" "l-side bottom r-side";
+}
+
+#header {
+    grid-area: header;
+}
+
+#left-side {
+    max-height: calc(100vh - 100px);
+    grid-area: l-side;
+}
+
+#content {
+    grid-area: content;
+}
+#right-side {
+    max-height: calc(100vh - 100px);
+    grid-area: r-side;
+}
+#bottom {
+    grid-area: bottom;
+}
+
+body[data-theme="dark"] .accordion-button {
+    background-color: #15181f !important;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+body[data-theme="dark"] .accordion-collapse{
+    background-color: #15181f !important;
+}
+
+.hard-hide {
+    display: none !important;
+}

@@ -1,0 +1,16 @@
+.icon-container {
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+.icon-list-demo code,
+.icon-list-demo span {
+    display: none;
+}
+.icon-list-demo .icon-hover i {
+    margin-right: 0;
+}
+#iconsModal .btn-close {
+    margin: 0.5rem;
+}
+

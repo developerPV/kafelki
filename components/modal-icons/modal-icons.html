@@ -1,0 +1,60 @@
+<input type="hidden" id="iconValue" />
+<div class="modal fade" id="iconsModal" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content  modal-filled bg-light">
+        <div class="modal-header d-flex justify-content-between">
+          <h4 class="modal-title">
+            Wybierz ikonę
+          </h4>
+          <div class="input-group w-50">
+            <input type="text" class="form-control form-control-lg" id="iconModalShearchInput" placeholder="Wyszukaj">
+            <button class="btn btn-outline-secondary" type="button" id="iconModalClearShearchInput">&times;</button>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <!-- Nav tabs -->
+                    <div class="nav flex-column nav-pills"  role="tablist" >
+                        <a class="nav-link active" data-bs-toggle="pill" href="#iconMaterial" role="tab" >
+                            Material
+                        </a>
+                        <a class="nav-link" data-bs-toggle="pill" href="#iconFontawsome" role="tab" >
+                            Fontawsome
+                        </a>
+                        <a class="nav-link" data-bs-toggle="pill" href="#iconThemify" role="tab">
+                            Themify
+                        </a>
+                        <a class="nav-link" data-bs-toggle="pill" href="#iconWeather" role="tab">
+                            Weather
+                        </a>
+                        <a class="nav-link" data-bs-toggle="pill" href="#iconSimpleLine" role="tab">
+                            Simple line
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-9 ">
+                    <div class="tab-content icon-container" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="iconMaterial" role="tabpanel" data-component-lazy="icons/material">
+                        </div>
+                        <div class="tab-pane fade" id="iconFontawsome" role="tabpanel" data-component-lazy="icons/fontawsome">
+                        </div>
+                        <div class="tab-pane fade" id="iconThemify" role="tabpanel" data-component-lazy="icons/themify">
+                        </div>
+                        <div class="tab-pane fade" id="iconWeather" role="tabpanel" data-component-lazy="icons/weather">
+                        </div>
+                        <div class="tab-pane fade" id="iconSimpleLine" role="tabpanel" data-component-lazy="icons/simpleline">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="selecIconButton" class="btn btn-success font-weight-medium waves-effect text-start" data-bs-dismiss="modal">
+            Wybierz
+          </button>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+.test:nth-child(2n) {
+    background-color: aqua;
+}

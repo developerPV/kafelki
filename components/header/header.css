@@ -1,0 +1,6 @@
+#header {
+    background: linear-gradient(45deg, blue, red);;
+}
+#header h1 {
+    line-height: 100px;
+}

@@ -1,0 +1,74 @@
+.btn-group.flex-column {
+    display: flex !important;
+    justify-content: center;
+}
+.btn-group.flex-column button {
+    border-radius: 0;
+}
+
+
+
+.btn-group.flex-column button:first-child {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem !important;
+}
+.btn-group.flex-column button:last-child {
+    border-bottom-left-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+
+.color-select {
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem;
+}
+
+.conf-selected{
+    color: #fff;
+    background-color: #5c636a !important;
+    border-color: #565e64 !important;
+    box-shadow: 0 0 0 .25rem rgba(130,138,145,.5);
+}
+
+.styles-container-outer {
+    /* background-color: #fff; */
+    overflow-x: auto;
+    overflow-y: hidden;
+
+}
+
+
+.styles-container-inner  {
+    max-height:  120px;
+    padding-right: 5px;
+}
+.style-control {
+    background-color: #fff;
+    width:calc(25vw - 10px);
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #6c757d;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+.style-control img {
+    border-radius: .25rem;
+    height: 100%;
+}
+.style-end {
+    /* margin: 5px; */
+    padding: 1px;
+    background-color: #0000;
+}
+
+
+#left-side label.w-100 {
+    margin-left:10px;
+}
+
+#additionalOptions {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: inherit;
+    max-height: fit-content
+}
