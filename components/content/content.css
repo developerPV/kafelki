@@ -11,3 +11,7 @@
     background: radial-gradient(ellipse at center,  #ffffff 0%,#eaeaea 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+
+#output {
+    width: calc(100% + 310px + 250px);
+}

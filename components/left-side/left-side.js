@@ -3,7 +3,10 @@
     const self = $(this);
     self.addClass('conf-selected');
     self.siblings().removeClass('conf-selected');
-    self.parent().trigger('change', {value: self.data('value')});
+    var evt = $.Event('change');
+    evt.value = self.data('value');
+    self.parent().data('value', evt.value);
+    self.parent().trigger(evt);
     
 }).first().click();
 
@@ -40,6 +43,54 @@
       evt.value = self.data('value');
       self.parent().trigger( evt );
   });
+
+
+  $('#selectModelChrts').change(function(e) {
+    var tile;
+    $('.additionalStylesTile').remove();
+
+    switch(e.value) {
+      case 1 :
+        tile = new TileStyle1();
+        AddStyles(`
+        .ct-line {
+          stroke: #fff !important;
+        }
+        .ct-area {
+          fill: #fff !important;
+          fill-opacity: .3 !important;
+        }
+        .ct-point {
+          stroke: #fff !important;
+        }
+        .ct-bar {
+          stroke: #fff !important;
+        }
+        `);
+        break;
+      
+      case 2 : {
+        tile = new TileStyle2();
+      }
+
+    }
+
+    if(tile.type === 'tile') {
+      $(tile).change(function(e) {
+        $('#outputHTML').text(this.HTML);
+        $('#outputCSS').text($('#additionalStylesTile').html());
+        $('#outputJS').text(this.Chart.JS);
+      });
+
+      $('#outputHTML').text(tile.HTML);
+      $('#outputCSS').text($('.additionalStylesTile').html());
+      $('#outputJS').text(tile.Chart.JS);
+    }
+  });
+
+  function AddStyles(styles) {
+    $('<style id="additionalStylesTile" class="additionalStylesTile" type="text/css">'+styles+'</style>').appendTo('head');
+  }
 
 })();
 

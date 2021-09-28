@@ -71,6 +71,8 @@
         const value = document.getElementById('iconValue');
         icon.className = '';
         icon.className = value.value;
-        document.getElementById('modalIconInitBtn').dispatchEvent(new Event('change', {value: value.value}));
+        var evt = $.Event('change');
+        evt.value = value.value;
+        $(icon).trigger(evt);
     });
 })();

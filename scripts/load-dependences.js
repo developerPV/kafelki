@@ -19,6 +19,10 @@ window.dependencies = {
         js:['chartist'],
         css:['chartist.min']
     },
+    'chartist-plugin-tooltips' : {
+        js:['chartist-plugin-tooltip'],
+        css:['chartist-plugin-tooltip']
+    },
     'sparkline' : {
         js:['sparkline']
     },
@@ -31,8 +35,14 @@ window.dependencies = {
             'app-style-switcher.horizontal', 
             'app.init.dark', 
         ]
+    },
+    classes : {
+        js: [
+            'Dataset',
+            'Charts',
+            'Tiles'
+        ]
     }
-
 }
 console.log('loading dependencies');
 

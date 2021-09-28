@@ -1,3 +1,13 @@
 #bottom {
     background-color: #000;
 }
+
+#bottom .tab-content {
+    width: calc(100vw - 560px);
+    height: calc(30vh - 42px);
+    overflow: scroll;
+}
+
+#bottom .tab-pane > * {
+    overflow: initial;
+}
