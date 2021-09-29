@@ -33,14 +33,15 @@ window.dependencies = {
             'waves',
             'app',
             'app-style-switcher.horizontal', 
-            'app.init.dark', 
+            'app.init', 
         ]
     },
     classes : {
         js: [
             'Dataset',
             'Charts',
-            'Tiles'
+            'Tiles',
+            'ProcentFromNumber'
         ]
     }
 }

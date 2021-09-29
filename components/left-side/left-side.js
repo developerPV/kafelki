@@ -46,7 +46,7 @@
 
 
   $('#selectModelChrts').change(function(e) {
-    var tile;
+    window.tile = null;;
     $('.additionalStylesTile').remove();
 
     switch(e.value) {
@@ -71,14 +71,40 @@
       
       case 2 : {
         tile = new TileStyle2();
+        break;
+      }
+
+      case 3 : {
+        tile = new TileStyle3();
+        AddStyles(`
+        .ct-line {
+          stroke: #fff !important;
+        }
+        .ct-area {
+          fill: #fff !important;
+          fill-opacity: .3 !important;
+        }
+        .ct-point {
+          stroke: #fff !important;
+        }
+        .ct-bar {
+          stroke: #fff !important;
+        }
+        `);
+        break;
+      }
+      case 4 : {
+        tile = new TileStyle4();
+        break;
       }
 
     }
 
     if(tile.type === 'tile') {
       $(tile).change(function(e) {
+        console.log('tigger evnt: ');
         $('#outputHTML').text(this.HTML);
-        $('#outputCSS').text($('#additionalStylesTile').html());
+        $('#outputCSS').text($('.additionalStylesTile').html());
         $('#outputJS').text(this.Chart.JS);
       });
 

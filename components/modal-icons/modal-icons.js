@@ -16,7 +16,6 @@
             icons.forEach(e => e.classList.remove('hard-hide'));
         } else {
             icons.forEach( (e, k) => {
-                console.log(k.search(value) > 0);
                 if(k.search(value) > 0) e.classList.remove('hard-hide');
                 else e.classList.add('hard-hide');
             });

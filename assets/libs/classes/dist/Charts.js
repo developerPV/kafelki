@@ -8,8 +8,14 @@ class Chart {
     #data;
     #extraCode = '';
 
+    get Chartist() {return this.#chart; }
+
+    get #code() {
+        return this.#extraCode + '\n' + this.additionalJs; 
+    }
+
     get JS() {
-        let output = '';
+        let output = 'const Chart = ';
 
         switch(this.#type) {
             case 'line':
@@ -41,7 +47,7 @@ class Chart {
         config = JSON.stringify(config, null, 4);
         output += config.replace(/\"/g, "");
 
-        output += ')' + this.#extraCode;
+        output += ')' + this.#code;
 
         return output;
     }
@@ -49,6 +55,7 @@ class Chart {
 
     constructor(type, mount, dataset) {
         this.#type = type;
+        this.additionalJs = '';
         $(dataset).change(this.#OnDatasetChange.bind(this));
         this.#mount = mount;
         this.#data = {
@@ -75,14 +82,14 @@ class Chart {
                 this.#chart = new Chartist.Bar(mount, data, config).on('draw', function(d) {
                     if(d.type === 'bar') {
                         d.element.attr({
-                            style: 'stroke-width: ' + 100 / (data.series[0].length+1)  + '%'
+                            style: 'stroke-width: ' + 100 / (data.series[0].length+2)  + '%'
                         });
                     }
                 });
                 this.#extraCode = `.on('draw', function(d) {
                     if(d.type === 'bar') {
                         d.element.attr({
-                            style: 'stroke-width: ' + 100 / (data.series[0].length+1)  + '%'
+                            style: 'stroke-width: ' + 100 / (data.series[0].length+2)  + '%'
                         });
                     }
                 })`;

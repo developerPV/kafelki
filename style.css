@@ -47,3 +47,13 @@ body[data-theme="dark"] .accordion-collapse{
 .hard-hide {
     display: none !important;
 }
+
+#left-side,
+#right-side {
+    background-color: #272728;
+}
+
+#left-side label, #left-side i {
+    color: #A0A0A0;
+}
+

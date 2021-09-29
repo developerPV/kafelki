@@ -6,6 +6,7 @@
     width: calc(100vw - 560px);
     height: calc(30vh - 42px);
     overflow: scroll;
+    color: #BBBBBB;
 }
 
 #bottom .tab-pane > * {
