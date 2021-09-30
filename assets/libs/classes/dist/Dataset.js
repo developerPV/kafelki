@@ -3,28 +3,32 @@ class Dataset {
     #addButton;
     #dataContainer;
 
+    get length() {
+        return this.#dataContainer.children().length;
+    }
+
     constructor(containerSelector = '', count = 10) {
         this.#BulidOuter();
-        
-        if(!Number.isInteger(count)) count =10;
-        this.#SetData(count);
 
-        const instance= $(this);
+        if (!Number.isInteger(count)) count = 10;
+        this.SetData(count);
+
+        const instance = $(this);
         instance.on('dataChange', this.#OnDataChange);
-        
-        if( containerSelector != '') this.Mount(containerSelector);
+
+        if (containerSelector != '') this.Mount(containerSelector);
     }
 
     #OnDataChange() {
         const data = this.dataset;
         var evt = $.Event('change');
-        evt.dataset=data;
+        evt.dataset = data;
         $(this).trigger(evt);
     }
-    
+
     get dataset() {
         const data = [];
-        this.#dataContainer.children().each(function() {
+        this.#dataContainer.children().each(function () {
             data.push(parseInt(
                 $(this).find('input[type="number"]').val()
             ));
@@ -34,27 +38,28 @@ class Dataset {
 
     Mount(selector) {
         var s = $(selector);
-        if(s.length== 0) return;
+        if (s.length == 0) return;
 
         this.#container = s;
         this.#container.append(this.#dataContainer);
         this.#container.append(this.#addButton);
     }
-    
+
     #BulidOuter() {
-       
+
         this.#dataContainer = $('<div style="overflow-x: hidden; overflow-y:scroll" class="flex-fill align-self-stretch flex-grow-1 flex-shrink-1"></div>');
-       
+
         this.#addButton = $('<button type="button" class="btn btn-secondary m-3 "><i class="fas fa-plus"></i></button>');
-        this.#addButton.click(function() {
+        this.#addButton.click(function () {
             this.AddData();
             this.#OnDataChange();
         }.bind(this));
-       
+
     }
 
-    #SetData(count) {
-        for(let i = 0; i < count; i++) {
+    SetData(count) {
+        this.#dataContainer.empty();
+        for (let i = 0; i < count; i++) {
             this.AddData();
         }
     }
@@ -62,12 +67,12 @@ class Dataset {
     AddData() {
         const length = this.#dataContainer.children().length + 1;
         const value = Math.floor(Math.random() * (101));
-        this.#dataContainer.append( this.#GenerateControl(length, value) );
+        this.#dataContainer.append(this.#GenerateControl(length, value));
     }
 
     Recalculate() {
-        this.#dataContainer.children().each( function(i) {
-            $(this).find('.counter').text('#' + (i+1));
+        this.#dataContainer.children().each(function (i) {
+            $(this).find('.counter').text('#' + (i + 1));
         });
     }
 
@@ -80,31 +85,31 @@ class Dataset {
         const instance = $(this);
 
         inputGroup.append(`<span class="input-group-text counter">#${count}</span>`);
-        
 
-        inputNumber.change(function() {
+
+        inputNumber.change(function () {
             inputRange.val(this.value);
             var evt = $.Event('dataChange');
             evt.value = this.value;
             instance.trigger(evt);
         });
-        inputNumber.keyup(function() {
+        inputNumber.keyup(function () {
             inputRange.val(this.value);
         });
         inputGroup.append(inputNumber);
 
-        eraseButton.click(function() {
+        eraseButton.click(function () {
             container.remove();
             var evt = $.Event('dataChange');
             evt.value = null;
-            instance.trigger(evt);
             instance[0].Recalculate();
+            instance.trigger(evt);
         });
         inputGroup.append(eraseButton);
 
         container.append(inputGroup);
 
-        inputRange.on('input', function() {
+        inputRange.on('input', function () {
             inputNumber.val(this.value).change();
         });
         container.append(inputRange);

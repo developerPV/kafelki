@@ -3,29 +3,36 @@
     <div class="styles-container-outer">
         <div class="d-flex flex-nowrap styles-container-inner" id="selectModelChrts">
 
-            <div data-value="1" class="style-control d-flex justify-content-center align-items-center" data-additional-options="icon|title|subtitle|unit|chart">
-                <img src="./assets/img/style (1).png"/>
+            <div data-value="1" class="style-control d-flex justify-content-center align-items-center"
+                data-additional-options="icon|title|subtitle|unit|chart">
+                <img src="./assets/img/style (1).png" />
             </div>
-            <div data-value="2" class="style-control d-flex justify-content-center align-items-center" data-additional-options="chart">
-                <img src="./assets/img/style (2).png"/>
+            <div data-value="2" class="style-control d-flex justify-content-center align-items-center"
+                data-additional-options="chart">
+                <img src="./assets/img/style (2).png" />
             </div>
-            <div data-value="3" class="style-control d-flex justify-content-center align-items-center" data-additional-options="chart|unit|icon">
-                <img src="./assets/img/style (3).png"/>
+            <div data-value="3" class="style-control d-flex justify-content-center align-items-center"
+                data-additional-options="chart|unit|icon">
+                <img src="./assets/img/style (3).png" />
             </div>
-            <div data-value="4" class="style-control d-flex justify-content-center align-items-center" data-additional-options="chart">
-                <img src="./assets/img/style (4).png"/>
+            <div data-value="4" class="style-control d-flex justify-content-center align-items-center"
+                data-additional-options="chart">
+                <img src="./assets/img/style (4).png" />
             </div>
-            <div data-value="5" class="style-control d-flex justify-content-center align-items-center" data-additional-options="chart">
-                <img src="./assets/img/style (5).png"/>
+            <div data-value="5" class="style-control d-flex justify-content-center align-items-center"
+                data-additional-options="chart">
+                <img src="./assets/img/style (5).png" />
             </div>
-            <div data-value="6" class="style-control d-flex justify-content-center align-items-center" data-additional-options="">
-                <img src="./assets/img/style (6).png"/>
+            <div data-value="6" class="style-control d-flex justify-content-center align-items-center"
+                data-additional-options="chart|unit">
+                <img src="./assets/img/style (6).png" />
             </div>
-            <div data-value="7" class="style-control d-flex justify-content-center align-items-center" data-additional-options="icon">
-                <img src="./assets/img/style.png"/>
+            <div data-value="7" class="style-control d-flex justify-content-center align-items-center"
+                data-additional-options="icon">
+                <img src="./assets/img/style.png" />
             </div>
             <div class="style-end"></div>
-            
+
         </div>
     </div>
 </div>
@@ -49,46 +56,49 @@
     <label class="w-100 mb-3">Kolor</label>
     <div class="d-flex justify-content-center">
 
-        <input type="hidde" id="colorValue" class="form-control demo minicolors" data-inline="true" value="#4fc8db" size="7">
+        <input type="hidde" id="colorValue" class="form-control demo minicolors" data-inline="true" value="#4fc8db"
+            size="7">
     </div>
 </div>
-    
-    <div id="additionalOptions" class="flex-fill">
-        <div class="form-group my-3 hard-hide" id="option-icon">
-            <label class="w-100 mb-3"></label>Ikona</label><br>
-            <div class="d-flex justify-content-center align-items-center">
-                <div class="w-25"></div>
-                <button type="button" id="modalIconInitBtn" class="btn w-50 btn-secondary mr-5" data-bs-toggle="modal" data-bs-target="#iconsModal">Wybierz</button>
-                <div class="w-25 text-center fs-1">
-                    <i id="choseIcon"></i>
-                </div>
+
+<div id="additionalOptions" class="flex-fill">
+    <div class="form-group my-3 hard-hide" id="option-icon">
+        <label class="w-100 mb-3"></label>Ikona</label><br>
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="w-25"></div>
+            <button type="button" id="modalIconInitBtn" class="btn w-50 btn-secondary mr-5" data-bs-toggle="modal"
+                data-bs-target="#iconsModal">Wybierz</button>
+            <div class="w-25 text-center fs-1">
+                <i id="choseIcon"></i>
             </div>
         </div>
-        
-        <div class="form-group my-3 hard-hide" id="option-subtitle">
-            <label class="w-100 mb-3 ">Podtytuł</label><br>
-            <div class="flex-column w-50 mx-auto form-group">
-                <input type="text" class="form-control" id="optionSubtitleValue" placeholder="Podtytuł">
-            </div>
-        </div>
-        <div class="form-group my-3 hard-hide" id="option-unit">
-            <label class="w-100 mb-3">Jednostka</label><br>
-            <div class="flex-column w-50 mx-auto form-group">
-                <input type="text" class="form-control" id="optionUnitValue" placeholder="GB">
-            </div>
-        </div>
-        
-        <div class="form-group my-3 hard-hide" id="option-chart">
-            <label class="w-100 mb-3">Wykres</label><br>
-            <select class="form-select w-50 mx-auto" id="optionChartValue">
-                <option selected value="line">Linia</option>
-                <option value="area-1">Pole (łagodne)</option>
-                <option value="area-2">Pole (twarde)</option>
-                <option value="bars">Słupki</option>
-              </select>
-        </div>
-    
     </div>
+
+    <div class="form-group my-3 hard-hide" id="option-subtitle">
+        <label class="w-100 mb-3 ">Podtytuł</label><br>
+        <div class="flex-column w-50 mx-auto form-group">
+            <input type="text" class="form-control" id="optionSubtitleValue" placeholder="Podtytuł">
+        </div>
+    </div>
+    <div class="form-group my-3 hard-hide" id="option-unit">
+        <label class="w-100 mb-3">Jednostka</label><br>
+        <div class="flex-column w-50 mx-auto form-group">
+            <input type="text" class="form-control" id="optionUnitValue" placeholder="GB">
+        </div>
+    </div>
+
+    <div class="form-group my-3 hard-hide" id="option-chart">
+        <label class="w-100 mb-3">Wykres</label><br>
+        <select class="form-select w-50 mx-auto" id="optionChartValue">
+            <option selected value="line">Linia</option>
+            <option value="area-1">Pole (łagodne)</option>
+            <option value="area-2">Pole (twarde)</option>
+            <option value="bars">Słupki</option>
+            <option value="gauge">Licznik</option>
+        </select>
+    </div>
+
+</div>
 
 
 

@@ -1,42 +1,48 @@
 window.dependencies = {
-    'jquery-minicolors' : {
+    'jquery-minicolors': {
         js: ['jquery.minicolors.min'],
         css: ['jquery.minicolors']
     },
-    'perfect-scrollbar' : {
-        js:['perfect-scrollbar.jquery.min'],
-        css:['perfect-scrollbar.min']
+    'perfect-scrollbar': {
+        js: ['perfect-scrollbar.jquery.min'],
+        css: ['perfect-scrollbar.min']
     },
-    'apexcharts' : {
-        js:['apexcharts2'],
+    'apexcharts': {
+        js: ['apexcharts2'],
         css: ['apexcharts']
     },
-    'c3' : {
-        js:['c3.min', 'd3.min'],
-        css:['c3.min']
+    'c3': {
+        js: ['c3.min', 'd3.min'],
+        css: ['c3.min']
     },
-    'chartist' : {
-        js:['chartist'],
-        css:['chartist.min']
+    'chartist': {
+        js: ['chartist'],
+        css: ['chartist.min']
     },
-    'chartist-plugin-tooltips' : {
-        js:['chartist-plugin-tooltip'],
-        css:['chartist-plugin-tooltip']
+    'chartist-plugin-tooltips': {
+        js: ['chartist-plugin-tooltip'],
+        css: ['chartist-plugin-tooltip']
     },
-    'sparkline' : {
-        js:['sparkline']
+    'sparkline': {
+        js: ['sparkline']
+    },
+    'gaugejs': {
+        js: ['gauge.min']
+    },
+    'css-chart': {
+        css: ['css-chart']
     },
     app: {
-        js:[
-            'feather.min', 
-            'custom', 
+        js: [
+            'feather.min',
+            'custom',
             'waves',
             'app',
-            'app-style-switcher.horizontal', 
-            'app.init', 
+            'app-style-switcher.horizontal',
+            'app.init',
         ]
     },
-    classes : {
+    classes: {
         js: [
             'Dataset',
             'Charts',
@@ -48,23 +54,26 @@ window.dependencies = {
 console.log('loading dependencies');
 
 
-( ()=> {
+(() => {
     const promisses = [];
-    for(const dep in window.dependencies) {
+    for (const dep in window.dependencies) {
         const base = './assets/libs/';
-        if(typeof(window.dependencies[dep].css) != 'undefined') {
+        if (typeof (window.dependencies[dep].css) != 'undefined') {
 
             window.dependencies[dep].css.forEach((e) => {
-                $('head').append( $('<link rel="stylesheet" type="text/css"/>').attr('href', base + dep + '/dist/' + e +  '.css') );
+                $('head').append($('<link rel="stylesheet" type="text/css"/>').attr('href', base + dep + '/dist/' + e + '.css'));
             });
         }
-        if(typeof(window.dependencies[dep].js) != 'undefined') {
+        if (typeof (window.dependencies[dep].js) != 'undefined') {
             window.dependencies[dep].js.forEach((e) => {
-               promisses.push(new Promise(function (resolve) {
-                    $.getScript( base + dep + '/dist/' + e + '.js').done( () => resolve() );
+                promisses.push(new Promise(function (resolve, rejected) {
+                    $.getScript(base + dep + '/dist/' + e + '.js').done(() => resolve()).fail((er) => {
+                        console.log(dep + ' ' + e);
+                        rejected(er);
+                    });
                 }));
             });
         }
     }
-    Promise.all(promisses).then(() => document.dispatchEvent(new Event('loadedDependencies',{dependencies: window.dependencies})));
+    Promise.all(promisses).then(() => document.dispatchEvent(new Event('loadedDependencies', { dependencies: window.dependencies })));
 })();
